@@ -4,11 +4,21 @@ var picDesc = ["A car that no one wanted", "A bike that was well loved but ultim
 
 //iterates over the picture array and adds them to the DOM
 for (var i = 0; i < picURL.length; i++){
+    //creates a div to contain each picture and caption
+    var newDiv = document.createElement("div");
+    newDiv.setAttribute("id","container" + i);
+    document.getElementById("picture").appendChild(newDiv);
+
+    //creates the image and adds it to the div container
     var image = document.createElement("img");
     image.setAttribute("src", picURL[i]);
-    document.getElementById("picture").appendChild(image);
+    image.setAttribute("id","picture" + i);
+    document.getElementById("container"+i).appendChild(image);
 
+    //creates the caption and adds it to the div container
     var caption = document.createElement("p");
-    
+    caption.innerHTML = picCaption[i];
+    caption.setAttribute("id", "caption" + i);
+    document.getElementById("container"+i).appendChild(caption);
 }
 
