@@ -12,8 +12,8 @@ for (var i = 0; i < picURL.length; i++){
     //creates the image and adds it to the div container
     // var url = "details.html?pic=" + "\"" + picURL[i] + 
     // "\"+caption=" + "\"" + picCaption[i] + "\"+desc=" + "\"" + picDesc[i] + "\"";
-    var url = "details.html?pic=three four five";
-console.log(url);
+    var url = "details.html?pic=1.jpg&details=This is the end of the road for this car";
+    console.log(url);
     var a = document.createElement("a");
     a.setAttribute("href",url);
     a.setAttribute("id","imageLink" + i);
