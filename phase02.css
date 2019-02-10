@@ -1,0 +1,14 @@
+.picture {
+    width: 100%;
+    height: auto;
+}
+#detailImage {
+    width: 80%;
+    height: 300px;
+    padding: 5px;
+}
+.pictureHolder {
+    width: 80%;
+    height: 300px;
+    padding: 5px;
+}

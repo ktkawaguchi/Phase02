@@ -4,39 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="phase02.css">
     <title>Details Page</title>
 </head>
 <body>
     <h3>Test of details page</h3>
-    <div id="detailImage"></div>
+    <button id="backButton">Go Back</button>
+    <div id="detailImage" class="pictureHolder"></div>
+
     <script>
-        function getQueryVariable(variable)
-            {
-                var query = window.location.search.substring(1);
-                var vars = query.split("&");
-                for (var i=0;i<vars.length;i++) {
-                        var pair = vars[i].split("=");
-                        if(pair[0] == variable){return pair[1];}
-                }
-                return(false);
-            };
         
-        //adds picture to the DOM
+        //searches for a string and returns the matching pair of the URL
+        function getQueryVariable(variable) {
+            var query = window.location.search.substring(1);
+            var vars = query.split("&");
+            for (var i=0; i<vars.length; i++) {
+                var pair = vars[i].split("=");
+                if(pair[0] == variable){return pair[1];}
+            }
+            return(false);
+        };
+   
+        //creates img and adds the picture to the DOM
         var picURL = getQueryVariable("pic");
-        console.log("this is a test" + picURL);
         var image = document.createElement("img");
         image.setAttribute("src", picURL);
         image.setAttribute("id","picture");
+        image.setAttribute("class","picture");
         document.getElementById("detailImage").appendChild(image);
         
+        //creates a p tag and adds it to the DOM
         var detailsURL = getQueryVariable("details");
         detailsURL = detailsURL.replace(/%20/g, " ");
-        // console.log(test);
         var p = document.createElement("p");
         p.innerText = detailsURL;
         document.getElementById("detailImage").appendChild(p);
 
     </script>
-
 </body>
 </html>
