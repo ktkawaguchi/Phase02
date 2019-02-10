@@ -6,10 +6,8 @@ body {
     width: 80%;
     height: 250px;
     padding: 5px;
-    background-color: darkslategray;
 }
 .picture {
     width: 100%;
     height: auto;
-    background-color: darkslategray;
 }
