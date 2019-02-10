@@ -8,22 +8,35 @@
     <title>Details Page</title>
 </head>
 <body>
-    <h3>Test of details page</h3>
     <button id="backButton">Go Back</button>
     <div id="detailImage" class="pictureHolder"></div>
 
     <script>
-        
+        //setting up the back button
+        document.getElementById("backButton").onclick = function () {
+            window.location.href="index.html";
+        };
+
         //searches for a string and returns the matching pair of the URL
         function getQueryVariable(variable) {
             var query = window.location.search.substring(1);
             var vars = query.split("&");
             for (var i=0; i<vars.length; i++) {
                 var pair = vars[i].split("=");
-                if(pair[0] == variable){return pair[1];}
+                if(pair[0] == variable) {
+                    pair[1] = pair[1].replace(/%20/g, " ");
+                    return pair[1];
+                }
             }
             return(false);
         };
+
+        //creates the p tag with the title and adds it to the DOM
+        var captionURL = getQueryVariable("caption");
+        var pCaption = document.createElement("p");
+        pCaption.setAttribute("id","caption");
+        pCaption.innerText = captionURL;
+        document.getElementById("detailImage").appendChild(pCaption);
    
         //creates img and adds the picture to the DOM
         var picURL = getQueryVariable("pic");
@@ -35,7 +48,6 @@
         
         //creates a p tag and adds it to the DOM
         var detailsURL = getQueryVariable("details");
-        detailsURL = detailsURL.replace(/%20/g, " ");
         var p = document.createElement("p");
         p.innerText = detailsURL;
         document.getElementById("detailImage").appendChild(p);
